@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Мерч</title>
+<link rel="shortcut icon" href="icon.png" type="image/png">
+<link rel="stylesheet" href="css/eventCalendar.css">
+<link rel="stylesheet" href="css/eventCalendar_theme_responsive.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/jquery.eventCalendar.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: Cruise;
+	src: url(10858.otf);
+}
+body {
+	background-image: url(IMG/fon_novosti.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.wrapper {
+	width: 70%;
+	background-image: url(IMG/fon_zeleniy.png);
+	margin: auto;
+	padding-top: 180px;
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f9fbf9;
+	width: 70%;
+	height: 130px;
+	font-size: 150px;
+	font-family: Cruise;
+	color: #576662;
+	box-shadow: -5px 3px 10px #999999;
+	z-index: 10;
+	padding-top: 65px;
+	text-align: center;
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+header {
+	font-size: 120px;
+	padding-top: 45px;
+	height: 100px;
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+header {
+	font-size: 90px;
+	padding-top: 55px;
+	height: 100px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+header {
+	font-size: 70px;
+	padding-top: 35px;
+	height: 70px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+header {
+	font-size: 50px;
+	padding-top: 20px;
+	height: 50px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+header {
+	font-size: 37px;
+	padding-top: 15px;
+	height: 40px;
+}
+}
+footer {
+	background-image: url(IMG/footer.jpg);
+	width: 70%;
+	height: 320px;
+	padding-top: 65px;
+	text-align: center;
+}
+.A {
+	display: inline-block;
+	transform: rotate(180deg) translateY(-18px);
+	color: #cd0909;
+	text-shadow: -3px -3px 3px #999999;
+}
+.M {
+	display: inline-block;
+	transform: rotate(180deg) translateY(-18px);
+	color: #cd0909;
+	text-shadow: -3px -3px 3px #999999;
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+.M {
+	transform: rotate(180deg) translateY(-14px);
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+.M {
+	transform: rotate(180deg) translateY(-12px);
+	padding-left: 2px;
+}
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+.A {
+	transform: rotate(180deg) translateY(-14px);
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+.A {
+	transform: rotate(180deg) translateY(-12px);
+	padding-left: 8px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+.A {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 12px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+.M {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+.M {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+.A {
+	transform: rotate(180deg) translateY(-6px);
+	padding-left: 16px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+.M {
+	transform: rotate(180deg) translateY(-5px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+.A {
+	transform: rotate(180deg) translateY(-5px);
+	padding-left: 18px;
+}
+}
+.Arxism {
+	margin-left: -10px;
+	text-shadow: 3px 3px 3px #999999;
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+.Arxism {
+	margin-left: -6px;
+}
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+.Arxism {
+	margin-right: -2px;
+}
+}
+.Narho {
+	text-shadow: 3px 3px 3px #999999;
+	margin-left: -25px;
+}
+section {
+	background-color: #78af78;
+	width: 70%;
+	height: 650px;
+	color: rgb(255,255,255);
+}
+.block {
+	width: 100%;
+	font-family: Cruise;
+	font-size: 36px;
+	color: white;
+	text-align: center;
+	border-radius: 15px;
+	margin-bottom: 15%;/*	padding: 15px;*/
+
+}
+.block1 {
+	height: 550px;
+}
+.block2 {
+	height: 550px;
+}
+h1 {
+	font-family: Cruise;
+	font-size: 36px;
+}
+.textselected {
+	color: #576662;
+}
+.pic {
+	margin: auto;
+}
+.pic2 {
+	margin: auto;
+}
+@media screen and (max-width: 1280px) and (min-width: 768px) {
+.pic {
+	width: 95%;
+}
+.pic2 {
+	width: 95%;
+}
+.pic3 {
+	width: 95%;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+.pic {
+	width: 95%;
+	margin-top: 55px;
+}
+.pic2 {
+	width: 95%;
+	top: 15%;
+}
+}
+.butt {
+	position: absolute;
+	margin-left: 72%;
+	margin-top: 210px;
+}
+.copyright {
+	font-size: 36px;
+	margin-left: 5%;
+	margin-top: 25%;
+	line-height: 35px;
+}
+.email {
+	font-size: 24px;
+	color: #d3e5d3;
+	display: block;
+	margin-top: 95px;
+	line-height: 24px;
+	height: 300px;
+}
+.mySlides {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+	top: -35px;
+}
+.mySlides2 {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+		top: 55px;
+}
+img {
+	vertical-align: middle; /* ветрикальное выравнивание строчных элементов*/
+}
+/* Контейнер для галереи */
+.slideshow-container {
+	width: 70%; /* ширина контейнера*/
+	position: relative;/*Контейнер спозиционирован относительно, чтобы абсолютно спозиционированное содержимое размещалось относительно этого контейнера*/
+	overflow: hidden;
+	margin: auto;
+}
+.headtext {
+	color: green;
+	font-size: 24px;
+}
+/* Контейнер для точек-индикаторов, позиционируется относительно своего родителя (контейнер для галереи. */
+.dotcontainer {
+	position: absolute;
+	top: 0px; /* позиция ниже уровня галереи*/
+	left: 50%;
+	transform: translateX(-50%) /* в сочетании с left 50% - центровка по горизонтали */
+}
+/* Точки-индикаторы */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 5px 3px;
+	background-color: #bbb;
+	border-radius: 50%; /* из квадратного блока сделал круг*/
+	display: inline-block; /*блоки расположить в одну строку*/
+	transition: background-color 0.6s ease;
+}
+@media screen and (max-width: 480px) and (min-width: 320px) {
+.dot {
+	margin: 5px 0px;
+	height: 13px;
+	width: 13px;
+}
+}
+/* Цвет активной точки-индикатора и при наведении. Класс .active задается автоматически в скрипте.*/
+.active, .dot:hover {
+	background-color: #717171;
+}
+/* Анимация при смене кадра. Эффект затухания - переход от полупрозрачности до полной непрозрачности в течение 1.5 сек */
+.fade {
+	-webkit-animation-name: fade;/*для браузеров, использующих webkit*/
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+ @-webkit-keyframes fade {
+ from {
+opacity: 0.4
+}
+to {
+	opacity: 1
+}
+}
+ @keyframes fade {
+ from {
+opacity: 0.4
+}
+to {
+	opacity: 1
+}
+}
+</style>
+</head>
+
+<body>
+<header><span class="A">А</span> <span class="Narho">нархо-</span><span class="M">М</span><span class="Arxism">арксизм</span></header>
+<a href="Index.html"><img class="butt" src="IMG/Na glavnuyu.png"/></a>
+<div class="wrapper">
+  <div class="block block1">
+    <div class="slideshow-container"> 
+      <!--Контейнер для отдельного слайда. Копируйте кол-во этих контейнеров по кол-ву ваших слайдов-->
+      <div class="mySlides fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext"><!--1 / 5--></div>
+        <img class="pic" src="IMG/merch (1).png" style="width:95%"> 
+        <!--Описание к фото--> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext"><!--2 / 5--></div>
+        <img  class="pic" src="IMG/merch (5).png" style="width:95%"> </div>
+      <div class="mySlides fade">
+        <div class="numbertext"><!--3 / 5--></div>
+        <img  class="pic" src="IMG/merch (3).png" style="width:95%"> </div>
+      <div class="mySlides fade">
+        <div class="numbertext"><!--4 / 5--></div>
+        <img class="pic" src="IMG/merch (4).png" style="width:95%"> </div>
+      <div class="mySlides fade">
+        <div class="numbertext"><!--5 / 5--></div>
+        <img class="pic" src="IMG/merch (2).png" style="width:95%"> </div>
+      <!--Контейнер с точками-индикаторами. Внутри контейнера копируйте тег span по нужному кол-ву точек. Не забывайте менять номер точки по порядку-->
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 0)"></span> <span class="dot" onClick="currentSlide(2, 0)"></span> <span class="dot" onClick="currentSlide(3, 0)"></span> <span class="dot" onClick="currentSlide(4, 0)"></span> <span class="dot" onClick="currentSlide(5, 0)"></span> </div>
+    </div>
+  </div>
+  <div class="block block2">
+    <div class="slideshow-container"> 
+      <!--Контейнер для отдельного слайда. Копируйте кол-во этих контейнеров по кол-ву ваших слайдов-->
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext"><!--1 / 3--></div>
+        <img class="pic2" src="IMG/primer (1).jpg" style="width:75%"> 
+        <!--Описание к фото--> 
+      </div>
+      <div class="mySlides2 fade">
+        <div class="numbertext"><!--2 / 3--></div>
+        <img  class="pic2" src="IMG/primer (2).jpg" style="width:75%"> </div>
+      <div class="mySlides2 fade">
+        <div class="numbertext"><!--3 / 3--></div>
+        <img  class="pic2" src="IMG/primer (3).jpg" style="width:75%"> </div>
+      
+      <!--Контейнер с точками-индикаторами. Внутри контейнера копируйте тег span по нужному кол-ву точек. Не забывайте менять номер точки по порядку-->
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 1)"></span> <span class="dot" onClick="currentSlide(2, 1)"></span> <span class="dot" onClick="currentSlide(3, 1)"></span> </div>
+    </div>
+     <p><a class="email" href="mailto:juliamust@mail.ru">
+ По всем вопросам и предложениям обращайтесь по электронной почте</a></p>
+    <!--  <div class="maintext">По всем вопросам и предложениям обращайтесь juliamust@mail.ru</div>-->
+  </div>
+  <footer>
+    <p class="copyright">© 2018 Julia Hatesweets<br/>
+      All rights reserved</p>
+  </footer>
+</div>
+<script>
+var slideIndex = [1,1];
+var slideId = ["mySlides", "mySlides2",]
+showSlides(1, 0);
+showSlides(1, 1);
+function currentSlide(n, no) {
+  showSlides(slideIndex[no] = n, no);
+}
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  var dots = document.getElementsByClassName("dot");
+   if (n > x.length) {slideIndex[no] = 1}   
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none"; 
+  }
+  
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+  dots[slideIndex[no]-1].className += " active";
+
+}
+</script>
+</body>
+</html>

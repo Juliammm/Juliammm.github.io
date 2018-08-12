@@ -1,0 +1,1150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>Новости</title>
+<link rel="shortcut icon" href="icon.png" type="image/png">
+<link rel="stylesheet" href="css/eventCalendar.css">
+<link rel="stylesheet" href="css/eventCalendar_theme_responsive.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/jquery.eventCalendar.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: Cruise;
+	src: url(10858.otf);
+}
+body {
+	background-image: url(IMG/fon_novosti.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.wrapper {
+	width: 70%;
+	background-image: url(IMG/fon_zeleniy.png);
+	margin: auto;
+	padding-top: 180px;
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f9fbf9;
+	width: 70%;
+	height: 130px;
+	font-size: 150px;
+	font-family: Cruise;
+	color: #576662;
+	box-shadow: -5px 3px 10px #999999;
+	z-index: 10;
+	padding-top: 65px;
+	text-align: center;
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+header {
+	font-size: 120px;
+	padding-top: 45px;
+height:100px;
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+header {
+	font-size: 90px;
+	padding-top: 55px;
+		height: 100px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+header {
+	font-size: 70px;
+	padding-top: 35px;
+		height: 70px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+header {
+	font-size: 50px;
+	padding-top: 20px;
+		height: 50px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+header {
+	font-size: 37px;
+	padding-top: 15px;
+		height: 40px;
+}
+}
+footer {
+	background-image: url(IMG/footer.jpg);
+	width: 70%;
+	height: 320px;
+	padding-top: 65px;
+	text-align: center;
+}
+.A {
+	display: inline-block;
+	transform: rotate(180deg) translateY(-18px);
+	color: #cd0909;
+	text-shadow: -3px -3px 3px #999999;
+}
+.M {
+	display: inline-block;
+	transform: rotate(180deg) translateY(-18px);
+	color: #cd0909;
+	text-shadow: -3px -3px 3px #999999;
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+.M {
+	transform: rotate(180deg) translateY(-14px);
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+.M {
+	transform: rotate(180deg) translateY(-12px);
+	padding-left: 2px;
+}
+}
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+.A {
+	transform: rotate(180deg) translateY(-14px);
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+.A {
+	transform: rotate(180deg) translateY(-12px);
+	padding-left: 8px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+.A {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 12px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 591px) {
+.M {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+.M {
+	transform: rotate(180deg) translateY(-8px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 590px) and (min-width: 431px) {
+.A {
+	transform: rotate(180deg) translateY(-6px);
+	padding-left: 16px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+.M {
+	transform: rotate(180deg) translateY(-5px);
+	padding-left: 6px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+.A {
+	transform: rotate(180deg) translateY(-5px);
+	padding-left: 18px;
+}
+}
+.Arxism {
+	margin-left: -10px;
+	text-shadow: 3px 3px 3px #999999;
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+.Arxism {
+	margin-left: -6px;
+}
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+.Arxism {
+	margin-right: -2px;
+}
+}
+.Narho {
+	text-shadow: 3px 3px 3px #999999;
+	margin-left: -25px;
+}
+section {
+	background-color: #78af78;
+	width: 70%;
+	height: 650px;
+	color: rgb(255,255,255);
+}
+.block {
+	width: 100%;
+	background-color: #79ac79;
+	font-family: Cruise;
+	font-size: 36px;
+	color: white;
+	text-align: center;
+	border-radius: 15px;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	line-align: center;
+	margin-bottom: 55px;
+	padding: 15px;
+	overflow: auto;
+}
+.block1 {
+	height: 800px;
+}
+.block2 {
+	height: 900px;
+}
+.block3 {
+	height: 800px;
+}
+.block4 {
+	height: 900px;
+}
+.block5 {
+	height: 900px;
+}
+.block6 {
+	height: 900px;
+}
+.block7 {
+	height: 750px;
+}
+.block8 {
+	height: 850px;
+}
+.block9 {
+	height: 1000px;
+	margin-top: 350px;
+}
+.block10 {
+	height: 950px;
+}
+.block11 {
+	height: 950px;
+}
+.scroll {
+	overflow: scroll;
+	width: 13%;
+	height: 150px;
+	font-family: Cruise;
+	position: fixed;
+	right: 1%;
+	top: 220px;
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+.scroll {
+	display: none;
+}
+}
+li {
+	color: #576662;
+	font-size: 24px;
+}
+ul {
+	list-style-position: inside
+}
+.date11 {
+	font-size: 12px;
+}
+.scrollname {
+	position: fixed;
+	width: 13%;
+	height: 150px;
+	right: 1%;
+	top: 180px;
+	font-family: Cruise;
+	font-size: 28px;
+	color: #576662;
+	text-decoration: underline red;
+	padding-bottom: 15px;
+	line-height: 24px;
+}
+@media screen and (max-width: 1120px) and (min-width: 769px) {
+.scrollname {
+	/*padding-bottom:55px;*/
+	top: 160px;
+}
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+.scrollname {
+	display: none;
+}
+}
+h1 {
+	font-family: Cruise;
+	font-size: 36px;
+}
+#AprilHunta {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#AMVISION {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+#OlympicGames {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesday1 {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesday2 {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesduel {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesday3 {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesday4 {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+		line-height:35px;
+}
+#OlympicGamesfinal {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	line-height:35px;
+}
+#KnifeNight {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	line-height:35px;
+}
+#AMWar {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	line-height:35px;
+}
+#Resume  {
+	color: #576662;
+	text-decoration: underline white;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	line-height:35px;
+}
+#calendar {
+	width: 250px;
+	margin-left: 45%;
+	position: absolute;
+}
+/*@media screen and (max-width: 1280px) and (min-width: 1025px) {
+#calendar {
+	margin-left: 40%;
+}*/
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+#calendar {
+	margin-left: 46%;
+	width: 200px;
+	height: 340px;
+	top:125px;
+}
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+#calendar {
+	margin-left: 38%;
+	width: 200px;
+	height: 340px;
+	top:125px;
+}
+}
+@media screen and (max-width: 767px) and (min-width: 600px) {
+#calendar {
+	margin-left: 35%;
+	width: 180px;
+	height: 340px;
+		top:95px;
+}
+}
+@media screen and (max-width: 599px) and (min-width: 431px) {
+#calendar {
+	margin-left: 25%;
+	width: 180px;
+	height: 340px;
+		top:75px;
+}
+}
+@media screen and (max-width: 430px) and (min-width: 320px) {
+#calendar {
+	width: 180px;
+	margin-left: 5%;
+	height: 300px;
+	top:55px;
+}
+}
+.textselected {
+	color: #576662;
+}
+.zagolovok1 {
+	color: #576662;
+	font-size: 24px;
+	display: block;
+	margin-top: 5px;
+}
+.podrobnee {
+	color: #576662;
+	margin-right: -255px;
+	font-size: 24px;
+}
+.pic {
+	float: left;
+	margin-top: 1%;
+	margin-left: 15px;
+	margin-right: 15px;
+		margin-top: 55px;
+		width:65%;
+}
+.pic2 {
+	float: left;
+	margin-top: 1%;
+	margin-left: 15px;
+	margin-right: 15px;
+		margin-top: 55px;
+		width:65%;
+}
+.pic3 {
+	float: left;
+	margin-top: 1%;
+	margin-left: 15px;
+	margin-right: 15px;
+		margin-top: 55px;
+		width:65%;
+}
+@media screen and (max-width: 1280px) and (min-width: 320px) {
+		.pic {
+	width: 95%;
+		margin-top: 55px;
+}
+.pic2 {
+	width: 95%;
+		margin-top: 55px;
+}
+.pic3 {
+	width: 95%;
+		margin-top: 55px;
+}
+}
+.uzor {
+	margin-top: 15px;
+}
+.maintext {
+	font-size: 24px;
+	color: #d3e5d3;
+	display: block;
+	text-align: left;
+	margin-top: 45px;
+	line-height: 24px;
+	height: 300px;
+}
+.copyright {
+	font-size: 36px;
+	margin-left: 5%;
+	margin-top: 25%;
+	line-height: 35px;
+}
+.mySlides {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+/*	top: 55px;*/
+}
+.mySlides2 {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+}
+.mySlides3 {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+}
+.mySlides4 {
+ display: none/* изначально все слайды скрыты*/
+ overflow: hidden;
+	position: relative;
+}
+img {
+	vertical-align: middle; /* ветрикальное выравнивание строчных элементов*/
+}
+/* Контейнер для галереи */
+.slideshow-container {
+	width: 70%; /* ширина контейнера*/
+	position: relative;/*Контейнер спозиционирован относительно, чтобы абсолютно спозиционированное содержимое размещалось относительно этого контейнера*/
+	overflow: hidden;
+	float: left;
+}
+.text {
+	color: #f2f2f2;
+	font-size: 17px;
+	position: absolute;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	transition: 3s;
+	height: 0;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.text3 {
+	bottom: -465px;
+}
+.mySlides:hover .text3 {
+	height: 135px;
+}
+.text4 {
+	bottom: -348px;
+}
+.mySlides:hover .text4 {
+	height: 135px;
+}
+.text5 {
+	bottom: -472px;
+}
+.text6 {
+	bottom: -570px;
+}
+.text7 {
+	bottom: -610px;
+}
+.text8 {
+	bottom: -610px;
+}
+.text9 {
+	bottom: -400px;
+}
+.text10 {
+	bottom: -530px;
+}
+.text11 {
+	bottom: -500px;
+}
+.text12 {
+	bottom: -560px;
+}
+.text13 {
+	bottom: -560px;
+}
+.text14 {
+	bottom: -580px;
+}
+.text15 {
+	bottom: -560px;
+}
+.text16 {
+	bottom: -560px;
+}
+.text17 {
+	bottom: -520px;
+}
+.butt { position: absolute; margin-left:1%; margin-top:275px;}
+.mySlides:hover .text5 {
+	height: 135px;
+}
+.mySlides2:hover .text6 {
+	height: 135px;
+}
+.mySlides2:hover .text7 {
+	height: 135px;
+}
+.mySlides2:hover .text8 {
+	height: 135px;
+}
+.mySlides2:hover .text9 {
+	height: 135px;
+}
+.mySlides2:hover .text10 {
+	height: 135px;
+}
+.mySlides2:hover .text11 {
+	height: 135px;
+}
+.mySlides3:hover .text12 {
+	height: 135px;
+}
+.mySlides3:hover .text13 {
+	height: 135px;
+}
+.mySlides3:hover .text14 {
+	height: 135px;
+}
+.mySlides3:hover .text15 {
+	height: 135px;
+}
+.mySlides3:hover .text16 {
+	height: 135px;
+}
+.mySlides3:hover .text17 {
+	height: 135px;
+}
+.headtext {
+	color: green;
+	font-size: 24px;
+}
+/* Порядковый номер фото (1/4 и т.д) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+/* Контейнер для точек-индикаторов, позиционируется относительно своего родителя (контейнер для галереи. */
+.dotcontainer {
+	position: absolute;
+	top: 0px; /* позиция ниже уровня галереи*/
+	left: 50%;
+	transform: translateX(-50%) /* в сочетании с left 50% - центровка по горизонтали */
+}
+/* Точки-индикаторы */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 5px 3px;
+	background-color: #bbb;
+	border-radius: 50%; /* из квадратного блока сделал круг*/
+	display: inline-block; /*блоки расположить в одну строку*/
+	transition: background-color 0.6s ease;
+}
+@media screen and (max-width: 480px) and (min-width: 320px) {
+.dot {margin: 5px 0px; height: 13px;
+	width: 13px;}
+}
+/* Цвет активной точки-индикатора и при наведении. Класс .active задается автоматически в скрипте.*/
+.active, .dot:hover {
+	background-color: #717171;
+}
+/* Анимация при смене кадра. Эффект затухания - переход от полупрозрачности до полной непрозрачности в течение 1.5 сек */
+.fade {
+	-webkit-animation-name: fade;/*для браузеров, использующих webkit*/
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+ @-webkit-keyframes fade {
+ from {
+opacity: 0.4
+}
+to {
+	opacity: 1
+}
+}
+ @keyframes fade {
+ from {
+opacity: 0.4
+}
+to {
+	opacity: 1
+}
+}
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 1%;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #79ac79;
+	font-family: Cruise;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 50%;
+}
+</style>
+</head>
+
+<body>
+<button onClick="topFunction()" id="myBtn" title="Наверх">Наверх</button>
+<header><span class="A">А</span> <span class="Narho">нархо-</span><span class="M">М</span><span class="Arxism">арксизм</span></header>
+<div class="scrollname">Важные события</div>
+<div class="scroll">
+  <ul>
+    <li>AM VISION <span class="date11">(22.07.2018г.)</span></li>
+    <li>Ночь длинных ножей <span class="date11">(09.04.2018г.)</span></li>
+    <li>Olympic Games финал <span class="date11">(31.10.2017 г.)</span></li>
+    <li>Olympic Games день 4 <span class="date11">(29.10.2017 г.)</span></li>
+    <li>Olympic Games день 3 <span class="date11">(28.10.2017 г.)</span></li>
+    <li>Olympic Games дуэли<span class="date11">(26.10.2017 г. - 27.10.2017 г.</span></li>
+    <li>Olympic Games день 2 <span class="date11">(22.10.2017г.)</span></li>
+    <li>Olympic Games день 1 <span class="date11">(21.10.2017г.)</span></li>
+    <li>AM Olympic Games <span class="date11">(22.09.2017г.-31.10.2017г.)</span></li>
+  <li> Война за наследие АМ <span class="date11">(с 03.07.2017г. по 31.10.2017г.)</span></li>
+    <li>Апрельская хунта <span class="date11">(с 17.04.2017г.)</span></li>
+  </ul>
+</div>
+<div class="wrapper">
+  <div id="calendar"></div>
+  <a href="Index.html"><img class="butt" src="IMG/Na glavnuyu.png"/></a>
+  <div class="block block9"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> Август сверхлюдей<br/>
+    <!--<p>Добавление стиля с шириной картинки позволяет масштабировать при уменьшении размера экрана</p>--> 
+    </span>
+    <h1 id="Resume">Резюмируем работу</h1>
+    <img class="pic2" src="IMG/menu.jpg"/>
+    <p class="maintext">Почти за 1,5 года работы новой админкой Ам совершены <span class="textselected">следующие преобразования:</span><br/><br/>
+    1) <span class="textselected">Повышено качество контента</span>, он стал рассчитан уже не на младшеклассников, а на более интеллектуальную аудиторию, причем развлекательный контент остался, но тоже слегка поумнел.<br/><br/>
+    2) <span class="textselected">Уменьшено число ракований и неадеквата</span> в паблике (так как данный контингент просто перестал понимать предоставляемый материал и убежал в более простые паблики)<br/><br/>
+    3) <span class="textselected">Отражено 3 налета на паблик</span>, крупнейшим и самым продолжительным из которых была война за наследие АМ. Паблик здравствует назло врагам даже после того, как достигнут предел восстановления техподдержкой. С нами СИЛА!<br/><br/>
+    4) Введены познавательные <span class="textselected">статьи</span> в удобном формате<br/><br/>
+    5) <span class="textselected">Введен ряд новых рубрик:</span> <br/>- битва идеологий (рубрика Юли Hatesweets), <br/>- отношение стран (рубрика Юли Hatesweets),<br/>- исторический разбор (аналог обсеров подписчиков только с историческими личностями) (рубрика Юли Hatesweets),<br/>- рунический (рубрика Андрея Вольного), <br/>- биеннале (рубрика, предложенная Кейном), <br/>- анархический (рубрика Андрея Вольного и Егора Духавина),<br/> - экономический (рубрика Юли Hatesweets)<br/><br/>
+    6) <span class="textselected">Проведено 2 крупных ивента</span> - Олимпийские игры в АМ (для 18-ти пабликов) и AM Vision (музыкальный конкурс с трансляцией в режиме реального времени)<br/><br/>
+    7) Важн оотметить, что до сих пор администрация паблика <span class="textselected">не использовала платные методы продвиижения, недобросовестную конкуренцию</span>, а поддерживала активность и приток подписчиков исключительно путем хорошего контента.<br/><br/>
+    8) Помните, что <span class="textselected">АМ любит Вас!</span> И будет стараться для Вас становиться лучше с каждым днем, мы ценим каждого из Вас!</p>
+  </div>
+  <div class="block block2"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 22.07.2018 г.<br/>
+    </span>
+    <h1 id="AMVISION">AM VISION<br/>
+    </h1>
+    <div class="slideshow-container"> 
+      <!--Контейнер для отдельного слайда. Копируйте кол-во этих контейнеров по кол-ву ваших слайдов-->
+      <div class="mySlides fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">1 / 5</div>
+        <img class="pic" src="IMG/S7irk0PVvKk.jpg" style="width:95%"> 
+        <!--Описание к фото--> 
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 5</div>
+        <img  class="pic" src="IMG/mPtdO7e0JmM.jpg" style="width:95%"> </div>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 5</div>
+        <img  class="pic" src="IMG/bWDH-34Czb4.jpg" style="width:95%">
+        <div class="text text3"  style="width:95%"><span class="headtext"> Участники 1<br/>
+          </span>Zombie (Nihil Nonsons) (LIFE), Аяс Допай, Дарья Нечаева, Арсений Кудряшов и Артём Зан, Андрей Ставцев (Увековечен †), Давид Скобичевский</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 5</div>
+        <img class="pic" src="IMG/vFgl2EmgrzI.jpg" style="width:95%">
+        <div class="text text4"  style="width:95%"><span class="headtext">Участники 2<br/>
+          </span>Марк Штиглиц (LIFE), Юлия Hatesweets (LIFE), Cubano, Богдан Мельников (Jose Escudero), Илья Русин, Ян Кислый (Фэ Тэ), Егор Тимофеев (СГ-5), Иван Суворов (SEVEN)</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 5</div>
+        <img class="pic" src="IMG/RrW2cH0YGOs.jpg" style="width:95%">
+        <div class="text text5"  style="width:95%"><span class="headtext">Участники 3<br/>
+          </span>Лия Каргина (Sara), Михаил Артюхов (Native Players), Евгений Капранов (Розовый век), Николае Чаушеску, lito446218</div>
+      </div>
+      <!--Контейнер с точками-индикаторами. Внутри контейнера копируйте тег span по нужному кол-ву точек. Не забывайте менять номер точки по порядку-->
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 0)"></span> <span class="dot" onClick="currentSlide(2, 0)"></span> <span class="dot" onClick="currentSlide(3, 0)"></span> <span class="dot" onClick="currentSlide(4, 0)"></span> <span class="dot" onClick="currentSlide(5, 0)"></span> </div>
+    </div>
+    <p class="maintext">Идея АМ-виденья зародилась год назад, была предложена Ильей Русиным, но так и не была воплощена в жизнь до сих пор. Целью данного мероприятия было: популяризация музыки, расширение форм подачи материала в группе, поднятие актива и знакомство с новыми людьми, а также приятное общение. Состав участников формировался спонтанно: кто-то пришел после рекламы ивента прямо в паблике, а кого-то пришлось добывать в полевых условиях (в комментариях различных музыкальных групп находились известные и не очень музыканты, желающие показать свое творчество). Прямая трансляция стала первой в своем роде и привлекла на себя ряд троллей, которые пытлись помешать ее проведению, наезжая на ведущих и поддевая участников. Среди видных деятелей "выделились" Кейн Властилин и Кирилл Энгельгард(последний был забанен прямо посреди трансляции за спам лайками на фото). На стороне светлых сил "сражались" трое ведущих: Юлия Hatesweets, Дарья Нечаева и Иван Рябков, а также участники в количестве 19-ти, из которых двое (Zombie из группы Nihil Nonsons и Марк Штиглиц) посетили прямой эфир и прошли небольшое интервью, а также спели вживую.</p>
+    <br/>
+  </div>
+   <div class="block block11"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 09.04.2018 г.<br/>
+    <!--<p>Добавление стиля с шириной картинки позволяет масштабировать при уменьшении размера экрана</p>--> 
+    </span>
+    <h1 id="KnifeNight">Ночь длинных ножей</h1>
+    <a href="https://vk.com/wall-82577394_74042"><img class="pic2" src="IMG/9fm.jpg"/></a>
+    <p class="maintext">На следующий день после Пасхи (что особенно кощунственно) совершено очередное вероломное нападение на паблик под названием -  <span class="textselected">Ночь длинных ножей</span>. Один из админов АМ, подговоренный старым врагом паблика, решает снести подписчиков, рассчитывая ,что паблик уже не оправится после такого удара. Налетчик совершает свою вылазку ночью, пока все спят. Почуяв сердцем неладное, Юля просыпается посреди ночи и видит процесс кражи, о чем сообщает Дмитрию. Атаку удается затормозить на полпути. Попытки отрицать свою вину у налетчика Gauss-а не удаются, по времени захода в сеть он оказывается моментально вычислен и исключен из админки навсегда. Ответом на налет, срежессированный снова Кейном становится собственно  <span class="textselected">деанон Кейна</span>, который надолго выбивает его из колеи, что он даже удаляет свою страничку на 2 месяца. А также шутливо-ироничное произведение -  <span class="textselected">В и В </span>, посвященное крепкой мужской дружбе двух гомогеев (старого агрессора и Кейна). Произведение принуждает агрессора утихомириться и пойти на мировую. Gauss подвергается забвению, порицанию и игнору. После недолгой бравады и гордости за совершенный теракт, позже осознает совершенную ошибку и извиняется за поступок. Кейн вины не признает до сих пор. Самым неприятным для налетчиков моментом стало то, что паблик восстановили, восстановив и сам актив. А также было обнаружено около  <span class="textselected">1000 трупов</span>, которые погибли еще в 2016 - начале 2017 году, что говорит о некачественном продвижении старой админкой и накрутке ботами/фейковыми страничками. Очистившись от ненужного балласта, АМ снова в строю. И так будет всегда!</p>
+    <br/>
+  </div>
+  <div class="block block8"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 31.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesfinal">Olympic Games: победители<br/>
+    </h1>
+    <div class="slideshow-container">
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">1 / 7</div>
+        <img class="pic" src="IMG/fin7.jpg" style="width:95%"/><br>
+      </div>
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">2 / 7</div>
+        <img class="pic" src="IMG/fin6.jpg" style="width:95%"/><br>
+      </div>
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">3 / 7</div>
+        <img class="pic" src="IMG/fin5.jpg" style="width:95%"/><br>
+      </div>
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">4 / 7</div>
+        <img class="pic" src="IMG/fin4.jpg" style="width:95%"/><br>
+      </div>
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">5 / 7</div>
+        <img class="pic" src="IMG/fin3.jpg" style="width:95%"/><br>
+      </div>
+      <div class="mySlides4 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">6 / 7</div>
+        <img class="pic" src="IMG/fin2.jpg" style="width:95%"/><br>
+        <div class="mySlides4 fade"> 
+          <!--текст с порядковым номером фото (при необходимости)-->
+       <!--   <div class="numbertext">7 / 7</div>
+          <img class="pic" src="IMG/fin1.jpg" style="width:95%"/><br>-->
+        </div>
+      </div>
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 3)"></span> <span class="dot" onClick="currentSlide(2, 3)"></span> <span class="dot" onClick="currentSlide(3, 3)"></span> <span class="dot" onClick="currentSlide(4, 3)"></span> <span class="dot" onClick="currentSlide(5, 3)"></span> <span class="dot" onClick="currentSlide(6, 3)"></span> <!--<span class="dot" onClick="currentSlide(7, 3)"></span>--> </div>
+    </div>
+    <p class="maintext"><span class="textselected">ПОБЕДИТЕЛИ ОЛИМПИЙСКИХ ИГР</span><br/>
+      Спасибо, что были с нами на протяжении этих дней! Без вас бы реализация задуманного была невозможной. Вы останетесь первыми в истории этой игры. <br/>
+      <br/>
+      Наш паблик набрал достаточное количество баллов, чтобы занять высшее место в этом турнире, но паблик-организатор не принимает участие в розыгрыше призов, как и было заявлено изначально ( не читаете же ,что я пишу, да? 😌). Наше участие было обусловлено: желанием на своем опыте протестировать новую систему, задать вам определенную "планку работы", ну и просто ради фана (не сидеть же на печи, пока другие трудятся?) Тем не менее мы благодарны всем, кто поддерживал и голосовал за нас, ваша оценка крайне важна! <br/>
+  </div>
+  <div class="block block10"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 29.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesday4">Olympic Games: день 4<br/>
+    </h1>
+    <div class="slideshow-container">
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">1 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo2.jpg" style="width:95%"/><br>
+        <div class="text text6"><span class="headtext">АКМ<br/>
+          </span>Андрей Сафронов</div>
+      </div>
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">2 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo.jpg" style="width:95%"/><br>
+        <div class="text text7"><span class="headtext">АМ<br/>
+          </span>Егор Духавин</div>
+      </div>
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">3 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo3.jpg" style="width:95%"/><br>
+        <div class="text text8"><span class="headtext">ResOublica<br/>
+          </span> Григорий Антипов и Егор Корман</div>
+      </div>
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">4 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo4.jpg" style="width:95%"/><br>
+        <div class="text text9"><span class="headtext">Депртамент<br/>
+          </span>Doctor Gauss</div>
+      </div>
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">5 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo5.jpg" style="width:95%"/><br>
+        <div class="text text10"><span class="headtext">Suomen maavoimat | Финская армия <br/>
+          </span>Артём Кутузов</div>
+      </div>
+      <div class="mySlides2 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">6 / 6</div>
+        <img class="pic" src="IMG/tvorchestvo6.jpg" style="width:95%"/><br>
+        <div class="text text11"><span class="headtext">Cinemadonbass<br/>
+          </span>Алексей Постоленко</div>
+      </div>
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 1)"></span> <span class="dot" onClick="currentSlide(2, 1)"></span> <span class="dot" onClick="currentSlide(3, 1)"></span> <span class="dot" onClick="currentSlide(4, 1)"></span> <span class="dot" onClick="currentSlide(5, 1)"></span> <span class="dot" onClick="currentSlide(6, 1)"></span> </div>
+    </div>
+    <p class="maintext"><span class="textselected">День четвертый: творческий.</span><br/>
+      В завершающий этап нашего соревнования, покажем немного индивидуальности и творческих работ от наших конкурсантов.<br/>
+      <span class="textselected">Суть этапа:</span> делимся любым творчеством без ограничений, которое так или иначе связано с тематикой участвующих пабликов.<br/>
+      <br/>
+      Больше работ смотрите в паблике</p>
+    <br/>
+  </div>
+  <div class="block block7"> <img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 28.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesday3">Olympic Games: день 3<br/>
+    </h1>
+    <div class="slideshow-container"> 
+      <!--Контейнер для отдельного слайда. Копируйте кол-во этих контейнеров по кол-ву ваших слайдов-->
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">1 / 6</div>
+        <img class="pic" src="IMG/discuss1.jpg" style="width:95%"/>
+        <div class="text text12"><span class="headtext"> Тема дискуссии 1:</span> Что такое свобода и что такое рабство?<br/>
+          <span class="headtext"> Участники:</span> Валентина Федорович (Literary-Musical Revolution)
+          Алистер Селезнев (Res Publica)
+          Роман Романов (РПЭИ "FEDERATION OF CENTRUMIS")
+          Артём Агапитов (Линия)
+          Нарек Саарян (Классический либерал) </div>
+      </div>
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">2 / 6</div>
+        <img class="pic" src="IMG/discuss2.jpg" style="width:95%"/>
+        <div class="text text13"><span class="headtext"> Тема дискуссии 2:</span> Право на территориальное единство государства vs право народов на самоопределение<br/>
+          <span class="headtext">Участники:</span> Doctor Gauss (Департамент)
+          Юля Hatesweets (Анархо-марксизм)
+          Давид Скобичевский (Yacht-Club SB)
+          Нарек Саарян (Классический либерал) </div>
+        <br>
+      </div>
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">3 / 6</div>
+        <img class="pic" src="IMG/discuss3.jpg" style="width:95%"/>
+        <div class="text text14"><span class="headtext"> Тема дискуссии 3:</span> Свобода воли и предопределение<br/>
+          <span class="headtext">Участники:</span> Юля Hatesweets (Анархо-марксизм)
+          Давид Скобичевский (Yacht-Club SB)
+          Нарек Саарян (Классический либерал) </div>
+      </div>
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">4 / 6</div>
+        <img class="pic" src="IMG/discuss4.jpg" style="width:95%"/>
+        <div class="text text15"><span class="headtext"> Тема дискуссии 4:</span>Смертная казнь: за и против<br/>
+          <span class="headtext">Участники:</span> Алистер Селезнев (Res Publica)
+          Артём Агапитов (Линия)
+          Константин Попов (Сталинская Народная Республика)
+          Давид Скобичевский (Yacht-Club SB)
+          Юля Hatesweets (Анархо-марксизм)
+          Нарек Саарян (Классический либерал) </div>
+      </div>
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">5 / 6</div>
+        <img class="pic" src="IMG/discuss5.jpg" style="width:95%"/>
+        <div class="text text16"><span class="headtext"> Тема дискуссии 5:</span>Нужна ли политика в ближайшем будущем или же это будет являться атавизмом?<br/>
+          <span class="headtext">Участники:</span>Константин Тихонов (Реданская Корчма)
+          Роман Романов (РПЭИ "FEDERATION OF CENTRUMIS") </div>
+      </div>
+      <div class="mySlides3 fade"> 
+        <!--текст с порядковым номером фото (при необходимости)-->
+        <div class="numbertext">6 / 6</div>
+        <img class="pic" src="IMG/discuss6.jpg" style="width:95%"/>
+        <div class="text text17"><span class="headtext"> Тема дискуссии 6:</span>Панк: место зарождения - Англия или США?<br/>
+          <span class="headtext">Участники:</span>Cinemadonbass (Алексей Постоленко)
+          Гуляйпольская мемная воля (Антон Ошеров) </div>
+      </div>
+      <div class="dotcontainer"> <span class="dot" onClick="currentSlide(1, 2)"></span> <span class="dot" onClick="currentSlide(2, 2)"></span> <span class="dot" onClick="currentSlide(3, 2)"></span> <span class="dot" onClick="currentSlide(4, 2)"></span> <span class="dot" onClick="currentSlide(5, 2)"></span> <span class="dot" onClick="currentSlide(6, 2)"></span></div>
+    </div>
+    <p class="maintext"><span class="textselected">День 3: дискуссия</span><br/>
+      Хороший паблик невозможен без толковых администраторов. Сегодня проверим их ораторское искусство и способность излагать свою позицию.<br/>
+      <br/>
+      <span class="textselected">Суть этапа:</span> дискуссия проходит в комментариях на стене сообщества. Выбрано несколько тем для обсуждения. Желательно, чтобы стороны имели противоположные друг другу взгляды, либо же умели приводить аргументы за разные позиции. По правилам дискуссии админка АМ может периодически вмешиваться, задавать вопросы.<br/>
+      <br/>
+    </p>
+  </div>
+  <div class="block block6"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 26.10.2017 г. - 27.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesduel">Olympic Games: дуэли<br/>
+    </h1>
+    <img class="pic2" src="IMG/duel.jpg"/>
+    <p class="maintext"><span class="textselected">Дуэли</span> - это необязательный этап соревнований, который может помочь улучшить положение паблика в турнирной таблице благодаря приобретению дополнительных баллов. За время игры было проведено 2 дуэли. <br/>
+      <br/>
+      <span class="textselected">🚩Дуэль1:</span> Давид Скобичевский (Yacht-Club SB) vs Юля Hatesweets (Анархо-марксизм)🚩.<br/>
+      Вид дуэли: рэп-баттл.<br/>
+      <audio title="БГДН-анкапский реп" src="БГДН - Анкапский Рэп.mp3" controls></audio>
+      <br/>
+      <audio title="Юля-ватный реп" src="Юля - Ватный Рэп.mp3" controls></audio>
+      <br/>
+      <br/>
+      <span class="textselected">🚩Дуэль2:</span> Алистер Селезнев (Res Publica) vs Юля Hatesweets (Анархо-марксизм)🚩.<br/>
+      Вид дуэли: философский спор.<br/>
+      Тема: "Научно-биологическое обоснование человеческих социумов. Как сильно сходство людей и стайных животных". </p>
+    <br/>
+  </div>
+  <div class="block block5"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 22.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesday2">Olympic Games: день 2<br/>
+    </h1>
+    <img class="pic3" src="IMG/day2.jpg"/>
+    <p class="maintext"><span class="textselected">День второй: оценка контента.</span> Группу определяет ее содержание. Поэтому сегодня оцениваем контент участников. <span class="textselected">Суть этапа:</span> оценка за него составляется из 2-х частей: первую уже заранее оценили админы соперничающих пабликов друг у друга, вторая сейчас за зрителями. Не все админы удержались от субъективности в оценки, поэтому ваш голос может все еще изменить. На данном этапе выяснилось, что путем случайного жребия в пару попали давние пабы-соперники. Не обошлось без выяснения отношений и взаимного обвинения в предвзятости. Так как оценка пабликов друг другом была показана заранее зрителям, им удалось сгладить несправедливый результат и изменить итоговые баллы своими голосами.</p>
+    <br/>
+  </div>
+  <div class="block block4"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 21.10.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGamesday1">Olympic Games: день 1<br/>
+    </h1>
+    <img class="pic2" src="IMG/pU2pod4kA_A.jpg"/>
+    <p class="maintext"><span class="textselected">День первый: этап для зрителей.</span> Что такое хороший паблик? Это такой, в котором есть своя постоянная верная аудитория, которая знает и любит то, что в нем публикуется. Насколько подписчики каждой из групп знакомы с их содержанием и готовы поддержать своим активным участием, проверим сегодня.<br/>
+      <span class="textselected">Суть этапа:</span> каждый паблик придумал по 5 вопросов о себе. Задача зрителей: выбрать паблик, за который будете болеть, и ответить на поставленные о нем вопросы нам в лс (лс сообщества анархо-марксизма). В конце дня мы подсчитываем число верных ответов и выводим результат за первый тур.<br/>
+      <span class="textselected">Небольшая подсказка как набрать больше баллов:</span> 1. При менее 5 участников-зрителей установлен понижающий коэффициент 1/2 (это значит, что результат будет в 2 раза уменьшен).
+      2. При менее 10 то же самое, толь уменьшится всего лишь на четверть.
+      3. Если участвовало 10 и более человек, никаких уменьшений не предусмотрено.
+      4. За каждые 25 участников предусмотрены бонусные баллы = 5 б. (на самом деле баллы все равно будут идти, чем больше поучаствовало, тем больше получите. Например, если поучаствовало 20 чел, то балл будет чуть меньше 5-ти, но все равно будет равен 4 и т. д.)
+      ///Если кратко и просто: чем больше за вас поучаствовало зрителей, тем больше бонусный балл</p>
+    <br/>
+  </div>
+  <div class="block block3"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 22.09.2017 г.<br/>
+    </span>
+    <h1 id="OlympicGames">AM Olympic Games<br/>
+      <font size="-1">(начало набора)</font> </h1>
+    <img class="pic2" src="IMG/ZMTmbNPWhaU.jpg"/>
+    <p class="maintext">Идея Олимпийских игр возникла как своеобразная Эврика. Правила тут же нарисовались в голове и были оформлены на бумаге. Далее предстоял тяжелый набор участников под сильным давлением конкурентов, которые буквально запрещали своим знакомым участвовать в играх. Тем не менее нам удалось переломить ситуацию в свою пользу и найти 18 пабликов, которые приняли наши услових (правила, должна заметить. многим показались изначально сложными, однако и это препятствие было преодолено благодаря оргам). <span class="textselected">18 пабликов</span>, вошедших в состав игр: Suomen Maavoimat|Финская армия, РПЭИ "Federation of centrumes", Право голоса|Империя союзных конфедераций, Global alliance syndicate "GAS", Альтернативная карта мира, Yacht club SB, Cinemadonbass, Линия, Реданская корчма, Анархо-марксизм "АМ", Анахист, Res Publica, Сталинская народная республика "СНР", Департамент, Literaly-musical revolution, Революционная армия мемоштейна, Гуляйпольскя мемная воля, Классический либерал</p>
+    <br/>
+  </div>
+   <div class="block block1"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 03.07.2017 г.<br/>
+    <!--<p>Добавление стиля с шириной картинки позволяет масштабировать при уменьшении размера экрана</p>--> 
+    </span>
+    <h1 id="AMWar">Война за наследие АМ</h1>
+    <img class="pic2" src="IMG/-h81KFK4vAw.jpg"/>
+    <p class="maintext">2,5 месяца бесперебойной работы новой администрации, а старую никто не зовет обратно - обидно? Что делать. Старая админка в своем новом паблике, созданном под копирку с АМ, взгрустнула, изредка оставляя вызовы на дуэль Димы Савельева и других ребят из АМ, на которые никто не обращал внимание. Но под подвернулся случай: Юля ссорится с Кейном из-за банальщины - рекламы злосчастных кружек, которая привела к оттоку подписоты. Ребята горячие, ссора переросла в ненависть и Кейн (против которого в реале ведется АТО украинскими карателями) совсем поехал головой и решил перевести <span class="textselected">АТО</span> (так он назвал свою операцию) в игровой мир и мстить Юле, которая к слову действия украинских властей никогда не поддержавала, а высказывалась в защиту республик. Метод Кейна призывал к перекачиванию подписчиков АМ в паблик старой администрации путем лжи подписчикам АМ (очернялась новая админка, писали, что мы якобы переехали, что старую админку кто-то выгнал , что разумеется правдой не являлось, так как Дима пожелал им всего хорошего и успехов во всех начинаниях, о чем есть подтверждение в виде скринов. Все было рассчитано, чтобы вызвать жалость и переманить людей)<br><br/>
+Математический мозг Кейна, казалось, продумал все, не учтя одну деталь. <span class="textselected">АМ никто не ставил на колени и никому поставить не дано.</span>При помощи приложения вк - дезертир Юля начинает отслеживать покинувших паблик и беседовать о причинах выхода. Тут-то и выясняется весь коварный план - возмущенные подписчики начинают сдавать негодяев, пересылая их лживые сообщения, многие украденные возвращаются обратно, поняв, что их подло обманули. Жалобы на спам помогают утихомирить пыл налетчиков. Также создается группа Кейна, которая извиняется перед подписчиками от имени Кейна (который бы сам извиниться не сподобился), а также отвечает самому Кейну, создавая крайне забавные диалоги.<br/>Среди всего горя и зла островок приятных эмоций, которые напоминали о тех днях, когда Юля с Кейном дружили, была выложенная Кейном песня в газете (через которую к слову велась усилення пропаганда против нас). Песня очень красивая, хоть и не люблю отечественную эстраду, эта выделяется среди всех остальных.<span class="textselected"> Леонид Агутин, Федор Добронравов- Тайна Склеенных Страниц</span> <br/> <audio title="Леонид Агутин, Федор Добронравов- Тайна Склеенных Страниц" src="Леонид Агутин, Федор Добронра_о_ - Тайна Склеенных Страниц.mp3" controls></audio><br/>Шпионские игры доходят до того, что на компьютер главреда Юли совершается харекское нападение в виде <span class="textselected">DDOS атаки</span>, которая замедляет работу до невозможности прогрузить страницу. Сделано это было во время ведения так называемого арбитража - когда воюющие стороны представляют свои аргументы и доказательства в виде скринов и пересылов диалогов, а нейтральная сторона выносит свой вердикт. Но Кейн тут снова просчитался (да-да все это время он был мозгом компании), ибо Юля заранее продублировала почти все скрины на свой телефон и заседание не было нарушено. Доказательства были весомы и весьма неприятны для противоположой стороны, которая расчитывала на то, что они не появятся. <br/><br/>Обороняющийся паблик отстаивал свои позиции практически в одиночку, только информаторы из нейтральных коалиций и из самого же вражеского паблика добровольно скидывали сведения о ходе кампании. Штаб противника был в десятки раз больше, имел финансовую поддержку, но ничто ему не помогло, удача всегда на стороне правды. <span class="textselected">19 июля техподдержка восстанавливает всех украденных подписчиков</span>, что окончательно добило боевой дух агрессора. Вскоре им просто надоело нападать, не видя результатов труда и они просто отстали, скрежеча зубами. Попытки нагадить заключались с тех пор в запрете участвовать в интерактивах АМ всем своим союхникам, переманивании обсериантов (рубрика разбора взглядов подписчиков) и засылки шпионов в штаб АМ с целью уничтожить паблик полностью. Вскоре админка АМ полностью забывает агрессоров и помня слова Димы о том, что надо заниматься не теми, кто ушел, а теми, кто захотел остаться, начинает работу над улучшением контента, введением новых рубрик и ивентов в группе.</p>
+    <br/>
+  </div>
+  <div class="block block1"><img class="uzor" src="IMG/uzor2.png"/><br/>
+    <span class="zagolovok1"> 17.04.2017 г.<br/>
+    <!--<p>Добавление стиля с шириной картинки позволяет масштабировать при уменьшении размера экрана</p>--> 
+    </span>
+    <h1 id="AprilHunta">Апрельская хунта</h1>
+    <img class="pic2" src="IMG/Ram5T7M1uPk.jpg"/>
+    <p class="maintext">В результате невозможности совместной работы друг с другом и личностных разногласий паблик покидает старая админка. В этот же день Создатель АМ проводит набор новой администрации, куда вошли зарекомендовавшие себя члены парамента АМ. В итоге администраторами АМ становятся: <span class="textselected">Русин Илья, Кейн Властилин Вячеслав, Юля Hatesweets.</span><br/>
+      Новая администрация начинает постепенные преобразования, направленные на улучшение качества контента в АМ, которое было низким еще с декабря-января и больше было направленно на школьников младшего возраста. Отныне в АМ аудитория выросла и воцарились "старшекласснки и студенты". В результате некоторые покидали паблик, объясняя это тем, что "не понимают публикуемый контент, слишком много новых слов". Также часть подписчиков была переманена прошлой администрацией (частично путем дружеских увещеваний, но большей частью путем угроз и обмана). Восемнадцатого апреля в АМ устанавливается официально хунта, абсолютным правителем АМ является <span class="textselected"> Дмитрий Савельев.</span></p>
+    <br/>
+  </div>
+  <footer>
+    <p class="copyright">© 2018 Julia Hatesweets<br/>
+      All rights reserved</p>
+  </footer>
+</div>
+<br>
+</div>
+<script> 
+$(function(){
+    var data = [{ "date": "2017-04-17 18:00:00","title": "Апрельская хунта", "description": "Зарождение новой админки", "url": "#AprilHunta" }, { "date": "2017-07-03 10:00:00","title": "Война за наследие АМ", "description": "Вероломное нападение старой админки на новую редакцию АМ", "url": "#AMWar" },{ "date": "2017-09-22 18:00:00","title": "AM Olympic Games", "description": "Начало набора на Олимпийские игры для пабликов вк", "url": "#OlympicGames" }, { "date": "2017-10-21 8:00:00","title": "Olympic Games: день 1", "description": "Вопросы о пабликах", "url": "#OlympicGamesday1" },  { "date": "2017-10-22 8:00:00","title": "Olympic Games: день 2", "description": "Оценка пабликами друг друга", "url": "#OlympicGamesday2" }, { "date": "2017-10-27 20:00:00","title": "Olympic Games: дуэли", "description": "Дуэли в Олимпийских играх", "url": "#OlympicGamesduel" }, { "date": "2017-10-26 13:00:00","title": "Olympic Games: дуэли", "description": "Дуэли в Олимпийских играх", "url": "#OlympicGamesduel" }, { "date": "2017-10-28 10:00:00","title": "Olympic Games: день 3", "description": "Дискуссионный этап", "url": "#OlympicGamesday3" }, { "date": "2017-10-31 10:00:00","title": "Olympic Games: день 4", "description": "Творческий этап", "url": "#OlympicGamesday4" }, { "date": "2017-10-29 10:00:00","title": "Olympic Games: final", "description": "Победители Олимпиады", "url": "#OlympicGamesfinal" }, { "date": "2018-04-09 3:00:00","title": "Ночь длинных ножей", "description": "Ночная диверсия против АМ", "url": "#KnifeNight" },{ "date": "2018-07-22 18:00:00","title": "AM VISION", "description": "Первая музыкальная трансляция в АМ", "url": "#AMVISION" }]
+	$('#calendar').eventCalendar({
+        jsonData: data,
+        jsonDateFormat: 'human',
+        showDescription: true,
+       locales: {
+    locale: "ru",
+	
+	txt_noEvents: "Нет событий",
+	txt_SpecificEvents_prev: "События за ",
+	txt_SpecificEvents_after: " года:",
+	txt_next: "следующее событие",
+	txt_prev: "предыдущее событие",
+	txt_NextEvents: " ",
+	txt_GoToEventUrl: "Читать",
+    txt_loading: "загрузка...",
+	moment: {
+        "months" : [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+		"Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+        "monthsShort" : [ "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
+                "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ],
+        "weekdays" : [ "Воскресенье","Понедельник","Вторник","Среда",
+                "Четверг","Пятница","Суббота" ],
+        "weekdaysShort" : ["Вс","Пн","Вт","Ср",
+                "Чт","Пт","Сб" ],
+       
+        "longDateFormat" : {
+            "LL" : "D  MMM  YYYY"
+
+        }
+    }
+  }
+	});
+});
+</script> 
+<script>
+var slideIndex = [1,1,1,1];
+var slideId = ["mySlides", "mySlides2", "mySlides3", "mySlides4",]
+showSlides(1, 0);
+showSlides(1, 1);
+showSlides(1, 2);
+showSlides(1, 3);
+
+function currentSlide(n, no) {
+  showSlides(slideIndex[no] = n, no);
+}
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  var dots = document.getElementsByClassName("dot");
+   if (n > x.length) {slideIndex[no] = 1}   
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none"; 
+  }
+  
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+  dots[slideIndex[no]-1].className += " active";
+
+}
+</script> 
+<script>
+// При прокрутке вниз на 20px появляется кнопка
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// При клике на кнопку содержимое возвращается наверх
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
